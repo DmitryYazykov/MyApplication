@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Follower Count</string>
+    <string name="subscribers">Enter the number of subscribers</string>
+    <string name="edText">Number of subscribers</string>
+    <string name="result">Result</string>
+    <string name="textResult">Text result</string>
+</resources>
