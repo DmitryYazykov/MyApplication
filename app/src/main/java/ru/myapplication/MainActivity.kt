@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import ru.myapplication.constants.Constants
 import ru.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var bindingClass: ActivityMainBinding              // настроенный ViewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         bindingClass = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bindingClass.root)
@@ -17,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         bindingClass.btResult.setOnClickListener {     //присваиваю кнопке слушатель нажатий
 
             // создаю переменную для сохранения значения которое ввёл прользователь
-            val resultValue = bindingClass.edValue.text.toString().toInt()
+            val resultValue = bindingClass.editTextName.text.toString()
 
             // код для проверки результата в логах
             Log.d("MyLog", "Result = $resultValue")
@@ -25,26 +27,59 @@ class MainActivity : AppCompatActivity() {
             // проверка результата
             when (resultValue) {
 
-                in 0..1_000 -> {
+                Constants.DIRECTOR -> {
                     // visibility = View.VISIBLE - делаем видимым текст результата
                     bindingClass.tvResult.visibility = View.VISIBLE
-                    // показ текста
-                    bindingClass.tvResult.text = "Вы начинающий блогер"
+
+                    // создаю переменную для показа текста
+                    val salary = "Получите вашу зарплату: ${Constants.DIRECTOR_SALARY} рублей"
+
+                    // условие если пользователь вводит пароль
+                    bindingClass.tvResult.text =
+                        if (bindingClass.editTextPassword.text.toString() == Constants.PASSWORD_DIRECTOR) {
+                            // показ текста
+                            salary
+                        } else {
+                            Constants.PASSWORD_ERROR
+                        }
                 }
 
-                in 1_000..100_000 -> {
+                Constants.ENGINEER -> {
                     bindingClass.tvResult.visibility = View.VISIBLE
-                    bindingClass.tvResult.text = "Вы отличный блогер"
+
+                    // создаю переменную для показа текста
+                    val salary = "Получите вашу зарплату: ${Constants.ENGINEER_SALARY} рублей"
+
+                    // условие если пользователь вводит пароль
+                    bindingClass.tvResult.text =
+                        if (bindingClass.editTextPassword.text.toString() == Constants.PASSWORD_ENGINEER) {
+                            // показ текста
+                            salary
+                        } else {
+                            Constants.PASSWORD_ERROR
+                        }
                 }
 
-                in 100_000..1_000_000 -> {
+                Constants.STREET_CLEANER -> {
                     bindingClass.tvResult.visibility = View.VISIBLE
-                    bindingClass.tvResult.text = "Вы лучший блогер"
+
+                    // создаю переменную для показа текста
+                    val salary = "Получите вашу зарплату: ${Constants.STREET_CLEANER_SALARY} рублей"
+
+                    // условие если пользователь вводит пароль
+                    bindingClass.tvResult.text =
+                        if (bindingClass.editTextPassword.text.toString() == Constants.PASSWORD_STREET_CLEANER) {
+                            // показ текста
+                            salary
+                        } else {
+                            Constants.PASSWORD_ERROR
+                        }
                 }
 
                 else -> {
+                    // если имя введено не верно
                     bindingClass.tvResult.visibility = View.VISIBLE
-                    bindingClass.tvResult.text = "Вы супер звезда!"
+                    bindingClass.tvResult.text = Constants.NAME_ERROR
                 }
             }
         }

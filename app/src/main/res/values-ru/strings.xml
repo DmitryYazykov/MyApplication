@@ -5,4 +5,7 @@
     <string name="edText">Количество подписчиков</string>
     <string name="result">Результат</string>
     <string name="textResult">Текст результата</string>
+    <string name="enterName">Введите имя</string>
+    <string name="enter_name_and_password_to_salary">Введите имя и пароль, что бы узнать зарплату</string>
+    <string name="enter_password">Введите пароль</string>
 </resources>

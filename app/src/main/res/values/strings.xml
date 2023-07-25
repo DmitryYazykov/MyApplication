@@ -4,4 +4,7 @@
     <string name="edText">Number of subscribers</string>
     <string name="result">Result</string>
     <string name="textResult">Text result</string>
+    <string name="enterName">Enter name</string>
+    <string name="enter_name_and_password_to_salary">Enter name and password to salary</string>
+    <string name="enter_password">Enter password</string>
 </resources>
